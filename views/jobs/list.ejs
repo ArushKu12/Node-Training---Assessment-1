@@ -1,0 +1,23 @@
+<h2>Jobs</h2>
+<p>Last Visit: <%= lastVisit %></p>
+
+<% if (user) { %>
+<form method="POST" action="/jobs">
+  <input name="title" placeholder="Title" />
+  <input name="company" placeholder="Company"/>
+  <textarea name="description" placeholder="Job description"></textarea>
+  <button>Create Job</button>
+</form>
+<% } %>
+
+<% jobs.forEach(job => { %>
+  <h3><%= job.title %></h3>
+  <p><%= job.company %></p>
+
+  <form method="POST" action="/apply/<%= job.id %>" enctype="multipart/form-data">
+    <input name="name" placeholder="Name"/>
+    <input name="email" placeholder="Email"/>
+    <input type="file" name="resume" />
+    <button>Apply</button>
+  </form>
+<% }) %>
