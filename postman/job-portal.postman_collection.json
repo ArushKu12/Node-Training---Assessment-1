@@ -1,0 +1,179 @@
+{
+  "info": {
+    "name": "Job Portal API",
+    "_postman_id": "b2c77e6e-4a5f-4e8a-9a9f-1f5c5a9c9d11",
+    "description": "Postman collection for Job Portal MVC Express App",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register Recruiter",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "email", "value": "recruiter@test.com", "type": "text" },
+                { "key": "password", "value": "123456", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["register"]
+            }
+          }
+        },
+        {
+          "name": "Login Recruiter",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "email", "value": "recruiter@test.com", "type": "text" },
+                { "key": "password", "value": "123456", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["login"]
+            }
+          }
+        },
+        {
+          "name": "Logout Recruiter",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Jobs",
+      "item": [
+        {
+          "name": "Get All Jobs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/jobs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["jobs"]
+            }
+          }
+        },
+        {
+          "name": "Create Job (Recruiter)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "title", "value": "Backend Developer", "type": "text" },
+                { "key": "company", "value": "Tech Corp", "type": "text" },
+                { "key": "description", "value": "Node.js + Express developer", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/jobs",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["jobs"]
+            }
+          }
+        },
+        {
+          "name": "Update Job",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "title", "value": "Senior Backend Developer", "type": "text" },
+                { "key": "company", "value": "Tech Corp", "type": "text" },
+                { "key": "description", "value": "Advanced Node.js role", "type": "text" }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/jobs/{{jobId}}/update",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["jobs", "{{jobId}}", "update"]
+            }
+          }
+        },
+        {
+          "name": "Delete Job",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/jobs/{{jobId}}/delete",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["jobs", "{{jobId}}", "delete"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Applicants",
+      "item": [
+        {
+          "name": "Apply for Job (Resume Upload)",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "name", "value": "John Doe", "type": "text" },
+                { "key": "email", "value": "john@test.com", "type": "text" },
+                {
+                  "key": "resume",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/apply/{{jobId}}",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["apply", "{{jobId}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
